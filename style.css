@@ -1,6 +1,18 @@
 /* =========================================
    1. RESET & GLOBAIS
    ========================================= */
+:root {
+  --azul: #014e9a;
+  --amarelo: #ffc107;
+}
+
+.area-box {
+  background-color: var(--azul);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 1.5rem;
+}
+
 *,
 *::before,
 *::after {
@@ -201,7 +213,7 @@ body {
 }
 
 /* =========================================
-   5. INSTAGRAM CARD (TOTALMENTE REFEITO P/ MOBILE)
+   5. INSTAGRAM CARD
    ========================================= */
 .instagram-profile-card {
   background: white;
@@ -700,7 +712,7 @@ textarea.custom-input {
 }
 
 /* =========================================
-   12. CORREÇÃO DA NAVBAR NO MOBILE (FINAL MESMO)
+   12. CORREÇÃO DA NAVBAR NO MOBILE
    ========================================= */
 @media (max-width: 991px) {
   .navbar.custom-transparent {
@@ -932,4 +944,38 @@ textarea.custom-input {
     background-color: #f8f9fa;
     color: #111;
   }
+}
+
+/* =========================================
+   14. ANIMAÇÃO DE SCROLL
+   ========================================= */
+@keyframes entrada {
+  from { opacity: 0; transform: translateY(70px) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .revelar,
+    .area-box {
+      animation: entrada linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 65%;
+    }
+  }
+}
+
+/* =========================================
+   15. FILTRO DE PROJETOSS (HOME)
+   ========================================= */
+.filtro-btn {
+  border-radius: 999px;
+  padding: 0.4rem 1.2rem;
+  font-weight: 600;
+}
+
+.filtro-btn.active {
+  background-color: var(--azul, #014e9a);
+  border-color: var(--azul, #014e9a);
+  color: #fff;
 }
