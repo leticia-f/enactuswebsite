@@ -253,3 +253,20 @@
 //         }
 //     }
 // });
+
+document.addEventListener("click", function (e) {
+  var btn = e.target.closest(".filtro-btn");
+  if (!btn) return;
+
+  var filtro = btn.dataset.filtro;
+
+  document.querySelectorAll(".filtro-btn").forEach(function (b) {
+    var ativo = b === btn;
+    b.classList.toggle("active", ativo);
+    b.setAttribute("aria-pressed", ativo);
+  });
+
+  document.querySelectorAll("[data-status]").forEach(function (card) {
+    card.hidden = filtro !== "todos" && card.dataset.status !== filtro;
+  });
+});
